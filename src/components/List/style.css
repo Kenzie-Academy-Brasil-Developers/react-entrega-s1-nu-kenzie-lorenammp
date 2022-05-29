@@ -1,0 +1,42 @@
+.transaction-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-filter h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #212529;
+}
+
+.filter {
+  width: 38%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter li {
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.filter li:hover {
+  background-color: #fd377e;
+  color: #ffffff;
+}
+
+.menu-item {
+  background-color: #e9ecef;
+  color: #5b6166;
+}
+
+.selected-item {
+  background-color: #fd377e;
+  color: #ffffff;
+}
