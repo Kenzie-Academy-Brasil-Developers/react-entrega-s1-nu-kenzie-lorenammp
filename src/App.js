@@ -1,74 +1,39 @@
-import { useState } from "react";
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Form from "./components/Form";
-import List from "./components/List";
-import Total from "./components/Total";
+import { Link } from "react-router-dom";
+import Circle from "./img/circle.png";
+import Card1 from "./img/card1.png";
+import Card2 from "./img/card2.png";
+import Card3 from "./img/card3.png";
 
 function App() {
-  const [listTransactions, setListTransactions] = useState([]);
-  const [completeList, setCompleteList] = useState([]);
-
-  function changeValues() {
-    listTransactions.forEach((item) => {
-      if (item.value > 0 && item.type === "despesa") {
-        item.value = item.value * -1;
-      }
-    });
-  }
-
-  function totalValue() {
-    changeValues();
-    const total = listTransactions.reduce((a, b) => a + b.value, 0);
-    return total;
-  }
-
-  function getAll(allItemsList) {
-    setCompleteList(allItemsList);
-    console.log(completeList);
-  }
-
-  function filterEntries() {
-    const filtered = completeList.filter((item) => item.type === "entrada");
-    setListTransactions(filtered);
-  }
-
-  function filterSpents() {
-    const filtered = completeList.filter((item) => item.type === "despesa");
-    setListTransactions(filtered);
-  }
-
-  function filterAll() {
-    setListTransactions(completeList);
-  }
-
   return (
-    <div className="App">
-      <Header></Header>
-      <main className="main-content">
-        <aside className="sidebar">
-          <Form
-            listTransactions={listTransactions}
-            setListTransactions={setListTransactions}
-            getAll={getAll}
-          />
+    <section className="start-page">
+      <div className="start-content">
+        <section className="start-text">
+          <section className="start-logo">
+            <h1>
+              <span className="pink-text">Nu</span> Kenzie
+            </h1>
+          </section>
 
-          <Total totalValue={totalValue} />
-        </aside>
-        <main className="card-content">
-          <List
-            listTransactions={listTransactions}
-            setListTransactions={setListTransactions}
-            completeList={completeList}
-            getAll={getAll}
-            filterEntries={filterEntries}
-            filterSpents={filterSpents}
-            filterAll={filterAll}
-          />
-        </main>
-      </main>
-    </div>
+          <section className="text-large">
+            Centralize o controle das suas finanças de forma rápida e segura
+          </section>
+
+          <Link to="/Main">
+            <button className="start-btn">Iniciar</button>
+          </Link>
+        </section>
+
+        <section className="main-img">
+          <img className="circle-img" src={Circle} alt="circle" />
+          <img className="card1-img" src={Card1} alt="card" />
+          <img className="card2-img" src={Card2} alt="card" />
+          <img className="card3-img" src={Card3} alt="card" />
+        </section>
+      </div>
+    </section>
   );
 }
 

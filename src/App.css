@@ -1,52 +1,185 @@
-.App {
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.main-content {
-  width: 65.5%;
-  margin: 40px auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar {
-  width: 37%;
-}
-
-.card-content {
-  width: 58%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.start-page {
+  background-color: #212529;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+}
+
+.start-content {
+  width: 66%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.start-text {
+  width: 36%;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.start-logo h1 {
+  font-weight: 800;
+  color: #ffffff;
+  font-size: 32px;
+}
+
+.text-large {
+  margin-top: 30px;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 48px;
+  color: #ffffff;
+}
+
+.start-btn {
+  margin-top: 30px;
+  border: none;
+  width: 100%;
+  background-color: #fd377e;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 48px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.start-btn:hover {
+  background-color: #e34981;
+}
+
+.main-img {
+  position: relative;
+  user-select: none;
+  width: 593px;
+  height: 593px;
+}
+
+.circle-img {
+  animation-name: appear;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transition: 0.5s;
+}
+
+.card1-img {
+  position: absolute;
+  z-index: 1;
+  top: 17%;
+  right: 29%;
+  animation-name: moveInTop;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transition: 0.5s;
+}
+
+.card2-img {
+  position: absolute;
+  z-index: 1;
+  top: 47%;
+  right: 20%;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transition: 0.5s;
+}
+
+.card3-img {
+  position: absolute;
+  z-index: 1;
+  top: 34%;
+  right: 29%;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transition: 0.5s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  80% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .start-content {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .start-content {
+    width: 90%;
+  }
+  .start-text {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .start-text {
+    width: 100%;
+  }
+  .main-img {
+    display: none;
   }
 }

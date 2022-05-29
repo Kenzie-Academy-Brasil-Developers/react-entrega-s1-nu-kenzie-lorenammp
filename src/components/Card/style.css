@@ -14,6 +14,16 @@
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
+  transition: 0.5s;
+}
+
+.single-card:nth-child(2n) {
+  animation-name: moveInRight;
+}
+
+.single-card:hover {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 42px -12px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes moveInLeft {
@@ -22,8 +32,16 @@
     transform: translateX(-100px);
   }
 
-  80% {
-    transform: translateX(10px);
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
   }
 
   100% {
@@ -79,6 +97,6 @@
 }
 
 .delete-btn:hover {
-  background-color: #fd377e;
+  background-color: #5b6166;
   color: #ffffff;
 }

@@ -2,10 +2,14 @@ import "./style.css";
 import { FaTrash } from "react-icons/fa";
 
 function Card(props) {
+  const positiveValue =
+    props.transaction.value < 0
+      ? (props.transaction.value = props.transaction.value * -1)
+      : props.transaction.value;
   const formatedValue = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
-  }).format(props.transaction.value);
+  }).format(positiveValue);
   const transactionType =
     props.transaction.type === "entrada"
       ? "single-card green-border"

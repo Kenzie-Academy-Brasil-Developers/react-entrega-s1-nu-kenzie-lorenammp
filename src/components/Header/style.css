@@ -17,6 +17,7 @@
 .logo h1 {
   font-weight: 900;
   font-size: 28px;
+  user-select: none;
 }
 
 .pink-text {
@@ -37,9 +38,16 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.5s;
+  user-select: none;
 }
 
 .btn:hover {
   background-color: #fd377e;
   color: #e9ecef;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-content {
+    width: 90%;
+  }
 }

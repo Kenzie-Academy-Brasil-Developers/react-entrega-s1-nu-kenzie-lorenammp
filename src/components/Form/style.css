@@ -31,8 +31,22 @@ input {
   padding: 0 10px;
 }
 
+.desc-text-input {
+  width: 100%;
+}
+
 .add-input {
   width: 100%;
+}
+
+small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #868e96;
+  padding-left: 10px;
+  height: 20px;
 }
 
 .single-input {
@@ -52,6 +66,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .select-menu {
+  font-family: "Inter", sans-serif;
   height: 52px;
   width: 100%;
   background-color: #f8f9fa;

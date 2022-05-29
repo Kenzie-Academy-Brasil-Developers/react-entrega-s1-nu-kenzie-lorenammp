@@ -1,4 +1,5 @@
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -11,7 +12,9 @@ function Header() {
         </section>
 
         <section className="leave-btn">
-          <button className="btn">Inicio</button>
+          <Link to="/">
+            <button className="btn">Início</button>
+          </Link>
         </section>
       </div>
     </header>
