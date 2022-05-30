@@ -26,7 +26,6 @@ function Main() {
 
   function getAll(allItemsList) {
     setCompleteList(allItemsList);
-    console.log(completeList);
   }
 
   function filterEntries() {
@@ -52,6 +51,7 @@ function Main() {
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
             getAll={getAll}
+            completeList={completeList}
           />
 
           <Total totalValue={totalValue} />

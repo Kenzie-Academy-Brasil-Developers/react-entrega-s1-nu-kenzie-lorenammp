@@ -17,7 +17,7 @@ function Form(props) {
       value: Number(transactionValue),
     };
     props.setListTransactions([...props.listTransactions, transaction]);
-    props.getAll([...props.listTransactions, transaction]);
+    props.getAll([...props.completeList, transaction]);
 
     setTransactionDesc("");
     setTransactionValue("");
