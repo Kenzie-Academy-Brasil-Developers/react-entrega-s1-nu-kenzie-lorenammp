@@ -11,6 +11,9 @@ function Form(props) {
   const [transactionType, setTransactionType] = useState("");
 
   function setData() {
+    if (transactionType === "") {
+      return notifyError();
+    }
     notifySuccess();
     const transaction = {
       description: transactionDesc,
@@ -27,6 +30,7 @@ function Form(props) {
 
   const notifySuccess = () => toast.success("Transação adicionada à lista");
 
+  const notifyError = () => toast.error("Selecione o tipo corretamente");
   return (
     <>
       <section className="form-section">
@@ -76,7 +80,9 @@ function Form(props) {
             </select>
           </div>
 
-          <button className="add-value-btn">Inserir valor</button>
+          <button className="add-value-btn" type="submit">
+            Inserir valor
+          </button>
         </form>
       </section>
     </>
