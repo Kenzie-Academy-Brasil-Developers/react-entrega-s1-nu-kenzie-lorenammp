@@ -6,6 +6,9 @@ import Card1 from "./img/card1.png";
 import Card2 from "./img/card2.png";
 import Card3 from "./img/card3.png";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <section className="start-page">
@@ -33,6 +36,7 @@ function App() {
           <img className="card3-img" src={Card3} alt="card" />
         </section>
       </div>
+      <ToastContainer />
     </section>
   );
 }

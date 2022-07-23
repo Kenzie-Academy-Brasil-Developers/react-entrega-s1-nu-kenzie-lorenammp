@@ -6,6 +6,9 @@ import Form from "../Form";
 import List from "../List";
 import Total from "../Total";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Main() {
   const [listTransactions, setListTransactions] = useState([]);
   const [completeList, setCompleteList] = useState([]);
@@ -68,6 +71,7 @@ function Main() {
           />
         </main>
       </main>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,28 +1,31 @@
 import "./style.css";
 import { useState } from "react";
 import React from "react";
-import FormAlert from "../FormAlert";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Form(props) {
   const [transactionDesc, setTransactionDesc] = useState("");
   const [transactionValue, setTransactionValue] = useState("");
   const [transactionType, setTransactionType] = useState("");
-  const [alert, setAlert] = useState(false);
 
   function setData() {
-    setAlert(true);
+    notifySuccess();
     const transaction = {
       description: transactionDesc,
       type: transactionType,
       value: Number(transactionValue),
     };
-    props.setListTransactions([...props.listTransactions, transaction]);
-    props.getAll([...props.completeList, transaction]);
+    props.setListTransactions([transaction, ...props.listTransactions]);
+    props.getAll([transaction, ...props.completeList]);
 
     setTransactionDesc("");
     setTransactionValue("");
     setTransactionType("");
   }
+
+  const notifySuccess = () => toast.success("Transação adicionada à lista");
 
   return (
     <>
@@ -32,7 +35,7 @@ function Form(props) {
           className="add-transaction-form"
         >
           <div className="desc-text-input">
-            <label for="description">Descrição</label>
+            <label>Descrição</label>
             <input
               value={transactionDesc}
               name="description"
@@ -46,20 +49,20 @@ function Form(props) {
           </div>
 
           <div className="single-input">
-            <label for="value">Valor</label>
+            <label>Valor</label>
             <input
               value={transactionValue}
               name="value"
               className="value-input"
               type="number"
-              placeholder="0"
+              placeholder="R$ 00,00"
               onChange={(event) => setTransactionValue(event.target.value)}
               required
             />
           </div>
 
           <div className="single-input">
-            <label for="transaction-type">Tipo de valor</label>
+            <label>Tipo de valor</label>
             <select
               value={transactionType}
               className="select-menu"
@@ -67,9 +70,7 @@ function Form(props) {
               onInput={(event) => setTransactionType(event.target.value)}
               required
             >
-              <option value="" disbabled hidden>
-                Transação
-              </option>
+              <option hidden>Transação</option>
               <option value="despesa">Despesa</option>
               <option value="entrada">Entrada</option>
             </select>
@@ -78,7 +79,6 @@ function Form(props) {
           <button className="add-value-btn">Inserir valor</button>
         </form>
       </section>
-      {alert && <FormAlert setAlert={setAlert} alert={alert} />}
     </>
   );
 }
